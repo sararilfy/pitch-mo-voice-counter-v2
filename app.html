@@ -15,19 +15,58 @@
           <div id="View">
             <div id="StatusBar"></div>
             <!-- 1/2セット -->
-            <div id="SetDisplayGroup"><span></span>/セット</div>
+            <div class="SetDisplayGroup">
+              <span class="nowTime">
+                <span class="numStrong">
+                  <span id="countset"></span>/<span id="totalSet"></span>セット
+                </span>
+              </span>
+            </div>
             <!-- サークル -->
             <div id="BackgroundCircle"></div>
             <div id="CountCircle"></div>
             <!-- line945 -->
-            <div id="PrepareNumGroup"></div>
-            <div id="CountNumGroup"></div>
-            <div id="IntervalNumGroup"></div>
+            <div id="PrepareNumGroup" style="color: red;">
+              <div class="countNumDisplay">
+                <span class="nowSecond"><span class="intervalSecondStrong" id="nowPrepareCount"><!-- {props.count} --></span></span>
+              </div>
+            </div>
+            <div id="CountNumGroup">
+              <div class="countNumDisplay">
+                <div id="TimeDisplayGroup">
+                  <span class="countNum">
+                    <span class="numStrong" id="countTime">{props.counttime}</span>/<span id="totalTime">{props.totalTime}</span>回
+                  </span>
+                </div>
+                <div id="NowSecond">
+                  <!-- if (props.isend) { -->
+                  <!-- <span class="nowSecond"><span class="endTextStrong">{props.countpitch}</span></span> -->
+                  <!-- else -->
+                  <span class="nowSecond">
+                    <span id="countPitch" class="nowSecondStrong">{props.countPitch}</span>/<span id="pitchSec">{props.pitchSec}</span>秒
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div id="IntervalNumGroup">
+              <div class="countNumDisplay">
+                <!-- TODO:以下JSへ -->
+                  <!-- if (props.isIntervalEnd) -->
+                  <span class="nowSecond">
+                    <span class="intervalSecondStrong">スタート</span>
+                  </span>
+                  <!-- else -->
+                  <span class="intervalTitle">インターバル終了まで</span>
+                  <span class="nowSecond">
+                    <span class="intervalSecondStrong">{props.minutes}</span>分<span class="intervalSecondStrong">{props.seconds}</span>秒
+                  </span>
+              </div>
+            </div>
           </div>
           <!-- line984 -->
           <nav>
             <!-- handlePrimaryButton -->
-            <button type="button" id="PrimaryButton" disabled>キャンセル</button>
+            <button type="button" id="PrimaryButton">スタート</button>
             <!-- handleSecondaryButton -->
             <button type="button" id="SecondaryButton">一時停止</button>
           </nav>
